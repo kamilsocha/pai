@@ -1,0 +1,65 @@
+module.exports = {
+  root: true,
+  settings: {
+    'import/resolver': {
+      node: {
+        moduleDirectory: ['node_modules', 'src/'],
+      },
+    },
+  },
+  ignorePatterns: [
+    '**/node_modules/',
+    '**/reportWebVitals.js',
+    '**/setupTests.js'],
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    'react-app',
+    'airbnb',
+    'plugin:react/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:promise/recommended',
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  plugins: [
+    'react',
+    'jsx-a11y',
+    'import',
+    'promise',
+    'react-hooks',
+  ],
+  rules: {
+    semi: ['error', 'never'],
+    'object-curly-newline': 'off',
+    'global-require': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-wrap-multilines': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/prop-types': 'off',
+    'react/display-name': 'off',
+    'react/forbid-prop-types': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'import/extensions': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'no-use-before-define': 'off',
+    'no-nested-ternary': 'off',
+    'no-unused-vars': 'warn',
+    'no-confusing-arrow': 'warn',
+    'no-param-reassign': ['error', { props: false }],
+    'jsx-quotes': ['error', 'prefer-single'],
+    'max-len': ['warn', { code: 100 }],
+  },
+}
