@@ -17,11 +17,9 @@ const Container = styled(MuiCard)`
 
 const ImageContainer = styled.div`
   display: block;
-  width: 100%;
-  height: auto;
   position: relative;
   overflow: hidden;
-  padding: 66% 0 0 0;
+  flex: 1;
 `
 
 const Image = styled.img`

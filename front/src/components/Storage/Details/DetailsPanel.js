@@ -25,7 +25,6 @@ const DetailsPanel = () => {
     enabled: false,
     onSuccess: (data) => {
       const c = getCoordinates(data)
-      console.log(c)
       setCoordinates(c)
     },
   })
