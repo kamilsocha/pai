@@ -9,14 +9,16 @@ from PIL import Image
 import os
 import mysql.connector
 from apscheduler.schedulers.background import BackgroundScheduler
+from dotenv import load_dotenv
 
 app = Flask(__name__, static_folder='./front/build', static_url_path='/')
 CORS(app)
 
 app.secret_key = 'supersecretkey4321'
 
-app.config['MYSQL_HOST'] = 'localhost'
-# app.config['MYSQL_HOST'] = 'db'# docker
+load_dotenv()
+
+app.config['MYSQL_HOST'] = os.getenv('MY_SQL_HOST')
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'ppp'
@@ -25,6 +27,7 @@ app.config['UPLOAD_FOLDER'] = 'files/'
 db = MySQL(app)
 
 UPLOAD_DIR = './files/'
+
 
 def init():
     scheduler = BackgroundScheduler()
@@ -59,9 +62,11 @@ CREATE TABLE IF NOT EXISTS files (
 def responseMessageJSON(msg, status):
     return jsonify({'message': msg}), status
 
+
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
+
 
 @app.route('/api/login', methods=['POST'])
 def login():
